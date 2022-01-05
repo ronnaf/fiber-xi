@@ -19,11 +19,17 @@ const Button: StyleConfig = {
       color: "brand.500",
       bg: "white",
     },
+    outline: {
+      color: "brand.500",
+    },
   },
   sizes: {
     md: {
       px: 6,
       py: 7,
+    },
+    sm: {
+      py: 6,
     },
   },
   defaultProps: {

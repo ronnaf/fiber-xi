@@ -16,7 +16,7 @@ import { SectionComponentProps, SectionWrapper } from "../core/section-wrapper";
 export const HeroSection = (props: SectionComponentProps) => {
   return (
     <SectionWrapper bg="background" {...props._wrapper}>
-      <Grid templateColumns="1fr 1fr" py="10" alignItems="center">
+      <Grid templateColumns="1fr 1fr" alignItems="center">
         <GridItem w="100%">
           <VStack spacing={5} alignItems="flex-start">
             {/* Rating */}

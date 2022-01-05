@@ -13,7 +13,6 @@ import React from "react";
 import codeIcon from "../../public/icons/code-icon.svg";
 import responsiveIcon from "../../public/icons/responsive-icon.svg";
 import stopwatchIcon from "../../public/icons/stopwatch-icon.svg";
-import portfolioSample from "../../public/portfolio-sample.png";
 import { SectionComponentProps, SectionWrapper } from "../core/section-wrapper";
 
 type Feature = {
@@ -72,28 +71,6 @@ export const FeaturesSection = (props: SectionComponentProps) => {
           ))}
         </SimpleGrid>
       </VStack>
-      <Box my={16} />
-      <Box bg="brand.500" p={10} borderRadius="md">
-        <Grid templateColumns="3fr 4fr" gap={10}>
-          <GridItem w="100%" display="flex" alignItems="center">
-            <VStack alignItems="flex-start" spacing={3}>
-              <Heading as="h2" size="lg" color="white">
-                Diversify your portfolio.
-              </Heading>
-              <Text color="white" lineHeight="1.75">
-                Create an even more impressive portfolio by creating case
-                studies for your projects. Simply follow our step-by-step guide.
-              </Text>
-              <Button variant="inverted-solid">Start Free Trial</Button>
-            </VStack>
-          </GridItem>
-          <GridItem w="100%">
-            <Box mb={-12}>
-              <Image src={portfolioSample} alt="portfolio-sample" />
-            </Box>
-          </GridItem>
-        </Grid>
-      </Box>
     </SectionWrapper>
   );
 };
