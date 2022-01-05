@@ -1,13 +1,8 @@
 import { Button, HStack } from "@chakra-ui/react";
 import React from "react";
-import { SectionWrapper, SectionWrapperProps } from "../core/section-wrapper";
+import { SectionComponentProps, SectionWrapper } from "../core/section-wrapper";
 
-interface Props {
-  /** The props of the containing element (which is SectionWrapper) */
-  _wrapper?: SectionWrapperProps;
-}
-
-export const Header = (props: Props) => {
+export const Header = (props: SectionComponentProps) => {
   return (
     <SectionWrapper bg="background" {...props._wrapper}>
       <HStack justifyContent="space-between">

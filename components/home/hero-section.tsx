@@ -11,14 +11,9 @@ import {
 import Image from "next/image";
 import React from "react";
 import heroIllustration from "../../public/hero-Illustration.png";
-import { SectionWrapper, SectionWrapperProps } from "../core/section-wrapper";
+import { SectionComponentProps, SectionWrapper } from "../core/section-wrapper";
 
-interface Props {
-  /** The props of the containing element (which is SectionWrapper) */
-  _wrapper?: SectionWrapperProps;
-}
-
-export const HeroSection = (props: Props) => {
+export const HeroSection = (props: SectionComponentProps) => {
   return (
     <SectionWrapper bg="background" {...props._wrapper}>
       <Grid templateColumns="1fr 1fr" py="10" alignItems="center">

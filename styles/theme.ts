@@ -4,6 +4,7 @@ import { StyleConfig } from "@chakra-ui/theme-tools";
 const Button: StyleConfig = {
   baseStyle: {
     borderRadius: "base",
+    fontWeight: "bold",
   },
   variants: {
     solid: {
@@ -13,6 +14,10 @@ const Button: StyleConfig = {
     link: {
       color: "brand.500",
       textDecoration: "underline",
+    },
+    "inverted-solid": {
+      color: "brand.500",
+      bg: "white",
     },
   },
   sizes: {

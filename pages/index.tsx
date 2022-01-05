@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { FeaturesSection } from "../components/home/features-section";
 import { Header } from "../components/home/header";
 import { HeroSection } from "../components/home/hero-section";
 
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       <main>
         <Header _wrapper={{ pb: 0 }} />
         <HeroSection _wrapper={{ pt: 0 }} />
+        <FeaturesSection _wrapper={{ py: 16 }} />
       </main>
     </div>
   );
