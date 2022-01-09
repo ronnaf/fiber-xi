@@ -5,7 +5,7 @@ import {FeaturesSection} from "../components/home/features-section";
 import {Header} from "../components/home/header";
 import {HeroSection} from "../components/home/hero-section";
 import {TestimonialsSection} from "../components/home/testimonials-section";
-import {TrialBanner} from "../components/home/trial-banner";
+import {TrialCardSection} from "../components/home/trial-card-section";
 
 const Home: NextPage = () => {
   return (
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <Header _wrapper={{py: 8}} />
         <HeroSection _wrapper={{pt: 4, pb: 24}} />
         <FeaturesSection _wrapper={{my: 16}} />
-        <TrialBanner _wrapper={{my: 16}} />
+        <TrialCardSection _wrapper={{my: 16}} />
         <TestimonialsSection _wrapper={{my: 16}} />
       </main>
       <Footer />

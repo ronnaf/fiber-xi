@@ -4,11 +4,11 @@ import React from "react";
 import {SectionComponentProps, SectionWrapper} from "../core/section-wrapper";
 import portfolioSample from "../../public/portfolio-sample.png";
 
-export const TrialBanner = (props: SectionComponentProps) => {
+export const TrialCardSection = (props: SectionComponentProps) => {
   return (
     <SectionWrapper {...props._wrapper}>
       <Box bg="brand.500" p={10} borderRadius="md">
-        <Grid templateColumns="3fr 4fr" gap={10}>
+        <Grid templateColumns={["1fr", "3fr 4fr"]} gap={10}>
           <GridItem w="100%" display="flex" alignItems="center">
             <VStack alignItems="flex-start" spacing={3}>
               <Heading as="h2" size="lg" color="white">

@@ -1,4 +1,16 @@
-import {Avatar, Box, Button, HStack, Spacer, Text, useToken, VStack} from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  HStack,
+  Spacer,
+  Text,
+  useToken,
+  VStack,
+  StackProps,
+  useMediaQuery,
+  useBreakpoint,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 import {SectionComponentProps, SectionWrapper} from "../core/section-wrapper";
@@ -48,26 +60,42 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-export const TestimonialsSection = (props: SectionComponentProps) => {
+const _HorizontalScrollStack = (props: StackProps) => {
   const [sectionWrapperMaxWInRem] = useToken("sizes", ["5xl"]);
   const size = useWindowSize();
 
   return (
+    <HStack
+      overflowY="auto"
+      alignItems="stretch"
+      mr={`calc((${size.width}px - ${sectionWrapperMaxWInRem}) / 2 * -1)`}
+      pr={`calc((${size.width}px - ${sectionWrapperMaxWInRem}) / 2)`}
+      sx={{
+        // Hide scrollbar
+        "::-webkit-scrollbar": {display: "none"}, // Safari and Chrome
+        "scrollbar-width": "none", // Firefox
+        "-ms-overflow-style": "none", // IE 10+
+      }}
+      {...props}
+    />
+  );
+};
+
+export const TestimonialsSection = (props: SectionComponentProps) => {
+  const breakpoint = useBreakpoint();
+  const ListStack = breakpoint === "base" ? VStack : _HorizontalScrollStack;
+
+  return (
     <SectionWrapper {...props._wrapper} overflow="hidden">
-      <HStack
-        overflowY="auto"
-        spacing={8}
-        alignItems="stretch"
-        mr={`calc((${size.width}px - ${sectionWrapperMaxWInRem}) / 2 * -1)`}
-        pr={`calc((${size.width}px - ${sectionWrapperMaxWInRem}) / 2)`}
-        sx={{
-          // Hide scrollbar
-          "::-webkit-scrollbar": {display: "none"}, // Safari and Chrome
-          "scrollbar-width": "none", // Firefox
-          "-ms-overflow-style": "none", // IE 10+
-        }}>
+      <ListStack spacing={8}>
         {testimonials.map((testimonial) => (
-          <Box key={testimonial.lastName} p={6} minW="sm" borderWidth={1} borderColor="gray.200" borderRadius="md">
+          <Box
+            key={testimonial.lastName}
+            p={6}
+            minW={["unset", "sm"]}
+            borderWidth={1}
+            borderColor="gray.200"
+            borderRadius="md">
             <VStack align="flex-start" spacing={3} h="full">
               <HStack spacing={3}>
                 <Avatar src={testimonial.avatarSrc} alt="avatar" />
@@ -86,7 +114,7 @@ export const TestimonialsSection = (props: SectionComponentProps) => {
             </VStack>
           </Box>
         ))}
-      </HStack>
+      </ListStack>
     </SectionWrapper>
   );
 };
