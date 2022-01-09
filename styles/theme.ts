@@ -1,5 +1,24 @@
-import { extendTheme, ThemingProps } from "@chakra-ui/react";
-import { StyleConfig } from "@chakra-ui/theme-tools";
+import {extendTheme} from "@chakra-ui/react";
+import {createBreakpoints, StyleConfig} from "@chakra-ui/theme-tools";
+
+/**
+ * Based on Bootsrap 5.0 breakpoints
+ * @see https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width
+ */
+const breakpoints = createBreakpoints({
+  // X-Small devices (portrait phones, less than 576px)
+  // No media query for `xs` since this is the default in Bootstrap
+  // Small devices (landscape phones, 576px and up)
+  sm: "576px",
+  // Medium devices (tablets, 768px and up)
+  md: "768px",
+  // Large devices (desktops, 992px and up)
+  lg: "992px",
+  // X-Large devices (large desktops, 1200px and up)
+  xl: "1200px",
+  // XX-Large devices (larger desktops, 1400px and up)
+  "2xl": "1400px",
+});
 
 const Button: StyleConfig = {
   baseStyle: {
@@ -39,6 +58,7 @@ const Button: StyleConfig = {
 };
 
 export const theme = extendTheme({
+  breakpoints,
   colors: {
     brand: {
       "50": "#EEE8FD",
