@@ -1,21 +1,9 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  HStack,
-  Spacer,
-  Text,
-  useToken,
-  VStack,
-  StackProps,
-  useMediaQuery,
-  useBreakpoint,
-} from "@chakra-ui/react";
-import Image from "next/image";
-import React from "react";
-import {SectionComponentProps, SectionWrapper} from "../core/section-wrapper";
+import {Avatar, Box, Button, HStack, Spacer, Text, useBreakpoint, useToken, VStack} from "@chakra-ui/react";
 import numeral from "numeral";
+import React from "react";
+import {getRemInPx} from "../../utils/get-rem-in-px";
 import {useWindowSize} from "../../utils/hooks/use-window-size";
+import {SectionComponentProps, SectionWrapper} from "../core/section-wrapper";
 
 type Testimonial = {
   avatarSrc: string;
@@ -60,42 +48,34 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const _HorizontalScrollStack = (props: StackProps) => {
+const _useScrollOverflowWidth = () => {
   const [sectionWrapperMaxWInRem] = useToken("sizes", ["5xl"]);
   const size = useWindowSize();
 
-  return (
-    <HStack
-      overflowY="auto"
-      alignItems="stretch"
-      mr={`calc((${size.width}px - ${sectionWrapperMaxWInRem}) / 2 * -1)`}
-      pr={`calc((${size.width}px - ${sectionWrapperMaxWInRem}) / 2)`}
-      sx={{
-        // Hide scrollbar
-        "::-webkit-scrollbar": {display: "none"}, // Safari and Chrome
-        "scrollbar-width": "none", // Firefox
-        "-ms-overflow-style": "none", // IE 10+
-      }}
-      {...props}
-    />
-  );
+  return `calc((${size.width}px - ${
+    getRemInPx(sectionWrapperMaxWInRem) < (size.width || 0) ? sectionWrapperMaxWInRem : `${size.width}px`
+  }) / 2)`;
 };
 
 export const TestimonialsSection = (props: SectionComponentProps) => {
-  const breakpoint = useBreakpoint();
-  const ListStack = breakpoint === "base" ? VStack : _HorizontalScrollStack;
+  const scrollOverflowWidth = _useScrollOverflowWidth();
 
   return (
     <SectionWrapper {...props._wrapper} overflow="hidden">
-      <ListStack spacing={8}>
+      <HStack
+        spacing={8}
+        overflowY="auto"
+        alignItems="stretch"
+        mr={`calc(${scrollOverflowWidth} * -1)`}
+        pr={scrollOverflowWidth}
+        sx={{
+          // Hide scrollbar
+          "::-webkit-scrollbar": {display: "none"}, // Safari and Chrome
+          "scrollbar-width": "none", // Firefox
+          "-ms-overflow-style": "none", // IE 10+
+        }}>
         {testimonials.map((testimonial) => (
-          <Box
-            key={testimonial.lastName}
-            p={6}
-            minW={["unset", "sm"]}
-            borderWidth={1}
-            borderColor="gray.200"
-            borderRadius="md">
+          <Box key={testimonial.lastName} p={6} minW="320px" borderWidth={1} borderColor="gray.200" borderRadius="md">
             <VStack align="flex-start" spacing={3} h="full">
               <HStack spacing={3}>
                 <Avatar src={testimonial.avatarSrc} alt="avatar" />
@@ -114,7 +94,7 @@ export const TestimonialsSection = (props: SectionComponentProps) => {
             </VStack>
           </Box>
         ))}
-      </ListStack>
+      </HStack>
     </SectionWrapper>
   );
 };

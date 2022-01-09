@@ -14,7 +14,7 @@ export interface SectionWrapperProps extends BoxProps {
 export const SectionWrapper = (props: SectionWrapperProps) => {
   return (
     <Box {...props}>
-      <Container maxW="5xl" px={[8, 0]} {...props._inner}>
+      <Container maxW="5xl" px={[8, 12, 12, 12, 0]} {...props._inner}>
         {props.children}
       </Container>
     </Box>

@@ -42,7 +42,7 @@ export const FeaturesSection = (props: SectionComponentProps) => {
             A good portfolio means good employability.
           </Heading>
         </VStack>
-        <SimpleGrid columns={[1, 3]} spacing={8}>
+        <SimpleGrid columns={[1, 2, 3]} spacing={8}>
           {features.map((feature) => (
             <Box key={feature.title}>
               <Box boxSize={9}>

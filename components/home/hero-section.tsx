@@ -8,14 +8,18 @@ export const HeroSection = (props: SectionComponentProps) => {
   return (
     <SectionWrapper bg="background" {...props._wrapper}>
       <Grid
-        templateColumns={["1fr", "repeat(2, 1fr)"]}
-        gridTemplateAreas={["'illustration' 'text-block' ", "'text-block illustration'"]}
+        templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
+        gridTemplateAreas={[
+          "'illustration' 'text-block' ",
+          "'illustration' 'text-block' ",
+          "'text-block illustration'",
+        ]}
         alignItems="center">
         {/* Text block */}
         <GridItem gridArea="text-block" w="100%">
           <VStack spacing={5} alignItems="flex-start">
             {/* Rating */}
-            <HStack spacing={4} display={["none", "block"]}>
+            <HStack spacing={4} display={["none", "none", "flex"]}>
               {/* Stars */}
               <HStack>
                 {[...new Array(5)].map((_, i) => (
@@ -35,21 +39,24 @@ export const HeroSection = (props: SectionComponentProps) => {
               templates.
             </Text>
             {/* Call to action */}
-            <Flex w={["full", "unset"]} wrap={["wrap", "nowrap"]}>
-              <Button w={["full", "unset"]} mb={["4", "unset"]} mr={["unset", "4"]}>
+            <Flex w={["full", "full", "unset"]} wrap={["wrap", "wrap", "nowrap"]}>
+              <Button w={["full", "full", "unset"]} mb={["4", "4", "unset"]} mr={["unset", "unset", "4"]}>
                 Start Free Trial
               </Button>
-              <Button variant="link" w={["full", "unset"]}>
+              <Button variant="link" w={["full", "full", "unset"]}>
                 View Examples
               </Button>
             </Flex>
             {/* Featurettes */}
-            <Flex w={["full", "unset"]} wrap={["wrap", "nowrap"]}>
-              <HStack w={["full", "unset"]} mb={["2", "unset"]} mr={["unset", "4"]}>
+            <Flex w={["full", "full", "full", "unset"]} wrap={["wrap", "wrap", "wrap", "nowrap"]}>
+              <HStack
+                w={["full", "full", "full", "unset"]}
+                mb={["4", "4", "4", "unset"]}
+                mr={["unset", "unset", "unset", "4"]}>
                 <Box h="3" w="3" bg="secondary" />
                 <Text>No credit card required</Text>
               </HStack>
-              <HStack w={["full", "unset"]}>
+              <HStack w={["full", "full", "full", "unset"]}>
                 <Box h="3" w="3" bg="secondary" />
                 <Text>10 free templates</Text>
               </HStack>

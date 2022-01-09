@@ -1,4 +1,4 @@
-import {Button, HStack} from "@chakra-ui/react";
+import {Button, HStack, StyleProps} from "@chakra-ui/react";
 import React from "react";
 import {SectionComponentProps, SectionWrapper} from "../core/section-wrapper";
 
@@ -6,7 +6,7 @@ export const Header = (props: SectionComponentProps) => {
   return (
     <SectionWrapper bg="background" {...props._wrapper}>
       {/* Desktop */}
-      <HStack justifyContent="space-between" display={["none", "flex"]}>
+      <HStack justifyContent="space-between" display={["none", "none", "flex"]}>
         <Button variant="link">Fiber</Button>
         <HStack>
           <Button variant="ghost">Community</Button>
@@ -19,7 +19,7 @@ export const Header = (props: SectionComponentProps) => {
         </HStack>
       </HStack>
       {/* Mobile */}
-      <HStack justifyContent="space-between" display={["flex", "none"]}>
+      <HStack justifyContent="space-between" display={["flex", "flex", "none"]}>
         <Button variant="link">Fiber</Button>
         <Button variant="link">=</Button>
       </HStack>

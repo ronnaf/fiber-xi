@@ -8,7 +8,7 @@ export const TrialCardSection = (props: SectionComponentProps) => {
   return (
     <SectionWrapper {...props._wrapper}>
       <Box bg="brand.500" p={10} borderRadius="md">
-        <Grid templateColumns={["1fr", "3fr 4fr"]} gap={10}>
+        <Grid templateColumns={["1fr", "1fr", "1fr", "3fr 4fr"]} gap={10}>
           <GridItem w="100%" display="flex" alignItems="center">
             <VStack alignItems="flex-start" spacing={3}>
               <Heading as="h2" size="lg" color="white">

@@ -6,7 +6,7 @@ export const Footer = (props: SectionComponentProps) => {
   return (
     <footer>
       <SectionWrapper bg="background" py={12}>
-        <Grid templateColumns={["1fr", "1fr 2fr"]} gap={[8, 12]}>
+        <Grid templateColumns={["1fr", "1fr", "1fr 2fr"]} gap={[8, 8, 12]}>
           <GridItem w="100%">
             <VStack alignItems="flex-start" spacing={1}>
               <Text fontWeight="bold">Fiber</Text>
@@ -15,11 +15,11 @@ export const Footer = (props: SectionComponentProps) => {
                 templates.
               </Text>
             </VStack>
-            <Box my={[4, 8]} />
+            <Box my={[4, 4, 8]} />
             <Text>Made with ❤ by Ronna</Text>
           </GridItem>
           <GridItem w="100%">
-            <Grid templateColumns={["1fr", "repeat(4, 1fr)"]} gap={8}>
+            <Grid templateColumns={["1fr", "1fr", "repeat(4, 1fr)"]} gap={8}>
               <GridItem w="100%">
                 <Text fontWeight="bold">Sitemap</Text>
                 <Box my={3} />
