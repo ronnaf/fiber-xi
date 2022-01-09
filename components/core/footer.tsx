@@ -1,25 +1,25 @@
-import { Box, Grid, GridItem, Text, VStack } from "@chakra-ui/react";
+import {Box, Grid, GridItem, Text, VStack} from "@chakra-ui/react";
 import React from "react";
-import { SectionComponentProps, SectionWrapper } from "./section-wrapper";
+import {SectionComponentProps, SectionWrapper} from "./section-wrapper";
 
 export const Footer = (props: SectionComponentProps) => {
   return (
     <footer>
       <SectionWrapper bg="background" py={12}>
-        <Grid templateColumns="1fr 2fr" gap={12}>
+        <Grid templateColumns={["1fr", "1fr 2fr"]} gap={[8, 12]}>
           <GridItem w="100%">
             <VStack alignItems="flex-start" spacing={1}>
               <Text fontWeight="bold">Fiber</Text>
               <Text fontSize="sm">
-                With Fiber, you can setup your own personal portfolio in minutes
-                with dozens of premade, beautiful templates.
+                With Fiber, you can setup your own personal portfolio in minutes with dozens of premade, beautiful
+                templates.
               </Text>
             </VStack>
-            <Box my={8} />
+            <Box my={[4, 8]} />
             <Text>Made with ❤ by Ronna</Text>
           </GridItem>
           <GridItem w="100%">
-            <Grid templateColumns="repeat(4, 1fr)">
+            <Grid templateColumns={["1fr", "repeat(4, 1fr)"]} gap={8}>
               <GridItem w="100%">
                 <Text fontWeight="bold">Sitemap</Text>
                 <Box my={3} />

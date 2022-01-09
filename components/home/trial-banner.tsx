@@ -1,15 +1,7 @@
-import {
-  Box,
-  Button,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import {Box, Button, Grid, GridItem, Heading, Text, VStack} from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import { SectionComponentProps, SectionWrapper } from "../core/section-wrapper";
+import {SectionComponentProps, SectionWrapper} from "../core/section-wrapper";
 import portfolioSample from "../../public/portfolio-sample.png";
 
 export const TrialBanner = (props: SectionComponentProps) => {
@@ -23,8 +15,8 @@ export const TrialBanner = (props: SectionComponentProps) => {
                 Diversify your portfolio.
               </Heading>
               <Text color="white" lineHeight="1.75">
-                Create an even more impressive portfolio by creating case
-                studies for your projects. Simply follow our step-by-step guide.
+                Create an even more impressive portfolio by creating case studies for your projects. Simply follow our
+                step-by-step guide.
               </Text>
               <Button variant="inverted-solid">Start Free Trial</Button>
             </VStack>

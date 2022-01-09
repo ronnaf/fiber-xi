@@ -1,5 +1,5 @@
-import { Box, BoxProps, Container, ContainerProps } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import {Box, BoxProps, Container, ContainerProps} from "@chakra-ui/react";
+import React, {ReactNode} from "react";
 
 export interface SectionComponentProps {
   /** The props of the containing element (which is SectionWrapper) */
@@ -14,7 +14,7 @@ export interface SectionWrapperProps extends BoxProps {
 export const SectionWrapper = (props: SectionWrapperProps) => {
   return (
     <Box {...props}>
-      <Container maxW="5xl" {...props._inner}>
+      <Container maxW="5xl" px={[8, 0]} {...props._inner}>
         {props.children}
       </Container>
     </Box>
